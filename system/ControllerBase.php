@@ -24,19 +24,19 @@ Abstract class ControllerBase {
 		$this->view->left_delimiter = '{view}';
 		//Setando o delimitador direito
 		$this->view->right_delimiter = '{/view}';
-		//desativa a checagem de compilação
+		//desativa a checagem de compilaï¿½ï¿½o
 		$this->view->compile_check = false; 
 		//Modo Debug desligado
 		$this->view->debugging = false;
 		//Ativando Caching
 		//$this->view->caching = true;
-		//Força a compilação(desativando cache)
+		//Forï¿½a a compilaï¿½ï¿½o(desativando cache)
 		$this->view->force_compile = true;
 		//Tempo de vida do Cache
 		$this->view->cache_lifetime = 0;		
 		//*******************************************
 		
-		//******* Setando os parâmetros default do framework *********
+		//******* Setando os parï¿½metros default do framework *********
 		
 		//Instancia a Classe para SEO
 		$Pageinfo = new Pageinfo();
@@ -59,10 +59,10 @@ Abstract class ControllerBase {
 		//Registra o visitante
 		$this->setNewVisitor();
 		
-		//Define as configurações de SEO(Search Engine Optimization)
+		//Define as configuraï¿½ï¿½es de SEO(Search Engine Optimization)
 		$this->defineSEOConfiguration($Pageinfo);
 		
-		//Define as constantes do Rodapé
+		//Define as constantes do Rodapï¿½
 		$this->defineFooterConstants();		
 		//*******************************************
 	}
@@ -101,16 +101,16 @@ Abstract class ControllerBase {
 	}
 
 	/**
-	 * Delega uma função para um determinado Model e retorna o resultado da tarefa
-	 * @param String $DelegateClass - Classe que cuidará da tarefa
-	 * @param String $action - Método que esta Classe deverá executar
-	 * @param Array/stdClass $parameters - Parâmetros que esta Classe deverá Receber
+	 * Delega uma funï¿½ï¿½o para um determinado Model e retorna o resultado da tarefa
+	 * @param String $DelegateClass - Classe que cuidarï¿½ da tarefa
+	 * @param String $action - Mï¿½todo que esta Classe deverï¿½ executar
+	 * @param Array/stdClass $parameters - Parï¿½metros que esta Classe deverï¿½ Receber
 	 * @return Ambiguous - Tipo de Retorno Depende da Classe
 	 */
 	protected function Delegator($DelegateClass,$action,$parameters=null)
 	{
-		//Verifica se os parâmetros são um Array ou Objeto
-		if( (!is_array($parameters) && !is_object($parameters)) && !is_null($parameters) ) die("Delegator -> Parâmetro inválido");
+		//Verifica se os parï¿½metros sï¿½o um Array ou Objeto
+		if( (!is_array($parameters) && !is_object($parameters)) && !is_null($parameters) ) die("Delegator -> Parï¿½metro invï¿½lido");
 
 		//Requisita o Arquivo do Model Delegator
 		include_once("system/delegators/ModelDelegator.php");
@@ -122,7 +122,7 @@ Abstract class ControllerBase {
 	}
 
 	/**
-	 * Retorna um parâmetro da URL(VIA GET)
+	 * Retorna um parï¿½metro da URL(VIA GET)
 	 * @param String $name
 	 * @return boolean|multitype:
 	 */
@@ -142,7 +142,7 @@ Abstract class ControllerBase {
 	}
 
 	/**
-	 * Modifica ou cria uma chave no Array da Requisição POST atual
+	 * Modifica ou cria uma chave no Array da Requisiï¿½ï¿½o POST atual
 	 * @param String $key
 	 * @param String $value
 	 */
@@ -151,7 +151,7 @@ Abstract class ControllerBase {
 	}
 
 	/**
-	 * Retorna o valor de uma determinada chave do Array POST, se nenhuma chave for informada então todo Array POST será Retornado
+	 * Retorna o valor de uma determinada chave do Array POST, se nenhuma chave for informada entï¿½o todo Array POST serï¿½ Retornado
 	 * @param String $name
 	 * @return Ambiguous
 	 */
@@ -171,8 +171,8 @@ Abstract class ControllerBase {
 	}
 
 	/**
-	 * Recebe um parâmetro de GET ou POST
-	 * @param String $name -> nome do parâmetro a ser recebido
+	 * Recebe um parï¿½metro de GET ou POST
+	 * @param String $name -> nome do parï¿½metro a ser recebido
 	 * @return
 	 */
 	protected function getRequestParam($name=null){
@@ -186,14 +186,14 @@ Abstract class ControllerBase {
 			//Retorna via POST
 			return $this->getPost($name);
 		}
-		//Retorn falso pois o parâmetro não foi encontrado em GET/POST
+		//Retorn falso pois o parï¿½metro nï¿½o foi encontrado em GET/POST
 		else{
 			return false;
 		}
 	}
 
 	/**
-	 * Seta os textos padrão do layout
+	 * Seta os textos padrï¿½o do layout
 	 */
 	private function setLayoutTexts()
 	{	
@@ -214,10 +214,10 @@ Abstract class ControllerBase {
 	 */
 	private function setNewVisitor(){
 
-		/* Verifica se a requisição é via ajax, se for ajax não é contado como visita, somente se a url se alterar no browser
+		/* Verifica se a requisiï¿½ï¿½o ï¿½ via ajax, se for ajax nï¿½o ï¿½ contado como visita, somente se a url se alterar no browser
 		   [OU]
-		   se o sistema estiver executando a action gerarCaptcha a contagem não é executada pois o processamento é interno
-		   não fazendo parte das views
+		   se o sistema estiver executando a action gerarCaptcha a contagem nï¿½o ï¿½ executada pois o processamento ï¿½ interno
+		   nï¿½o fazendo parte das views
 		 */
 		if( !(HelperFactory::getInstance()->isAjax()) && !(strtolower($this->action) == "gerarcaptcha") ){
 					
@@ -233,7 +233,7 @@ Abstract class ControllerBase {
 	{
 		//******************* Verifica o idioma a ser apresentado ********************
 
-		//Verifica se o usuário solicitou a mudança de idioma
+		//Verifica se o usuï¿½rio solicitou a mudanï¿½a de idioma
 		if($this->getParam('idioma') != false)
 		{		
 			//Instancia a tabela de Idiomas
@@ -247,16 +247,16 @@ Abstract class ControllerBase {
 				//Sigla do Idioma
 				define('LANGUAGE_TXT_META',$_SESSION['language_txt_meta']);
 				
-			}else{ //Cai aqui se o idioma não existir, neste caso ele pega o idioma default
+			}else{ //Cai aqui se o idioma nï¿½o existir, neste caso ele pega o idioma default
 
-				//Idioma padrão
+				//Idioma padrï¿½o
 				define('LANGUAGE',$recordset_site_info['cod_idioma_default']);
 				//Sigla do Idioma
 				define('LANGUAGE_TXT_META',$TabelaIdiomas->getMeta($recordset_site_info['cod_idioma_default']));
 			}
 		}
 
-		//Cai neste else se o usuário não solicitou mudança de idioma
+		//Cai neste else se o usuï¿½rio nï¿½o solicitou mudanï¿½a de idioma
 		else
 		{
 			if(isset($_SESSION['language']))
@@ -270,7 +270,7 @@ Abstract class ControllerBase {
 			{
 				//Instancia a tabela de Idiomas
 				$TabelaIdiomas = TableFactory::getInstance('WebsiteIdiomas');
-				//Idioma padrão
+				//Idioma padrï¿½o
 				define('LANGUAGE',$recordset_site_info['cod_idioma_default']);
 				//Sigla do Idioma
 				define('LANGUAGE_TXT_META',$TabelaIdiomas->getMeta($recordset_site_info['cod_idioma_default']));
@@ -302,16 +302,16 @@ Abstract class ControllerBase {
 			}
 		}
 		$this->view->assign("LANGUAGE_LINKS",DEFAULT_URL.$this->controller."/".($this->action == 'index_action' ? 'index' : $this->action)."/".$concatenar);
-		############ FIM VERIFICAÇÃO IDIOMAS DISPONIVEIS  ############		
+		############ FIM VERIFICAï¿½ï¿½O IDIOMAS DISPONIVEIS  ############		
 	}
 		
 	/**
-	 * Configura as constantes do Rodapé 
+	 * Configura as constantes do Rodapï¿½ 
 	 */
 	private function defineFooterConstants(){
 		
-		//Informações a respeito do endereço da empresa
-		$dados_endereco = TableFactory::getInstance('Contatos')->Buscaendereco();
+		//Informaï¿½ï¿½es a respeito do endereï¿½o da empresa
+		$dados_endereco = TableFactory::getInstance('ContatosHoteis')->BuscaEndereco();
 			
 		//Envia os dados ao Smarty
 		$this->view->assign("DADOS_ENDERECO",$dados_endereco);		
@@ -327,23 +327,23 @@ Abstract class ControllerBase {
 	*/
 	
 	/*
-	 * Define as configurações de SEO(Search Engine Optimization)
+	 * Define as configuraï¿½ï¿½es de SEO(Search Engine Optimization)
 	 */
 	private function defineSEOConfiguration($Pageinfo){
 		
-		//Busca as informações da página atual
+		//Busca as informaï¿½ï¿½es da pï¿½gina atual
 		$recordset_pagina_atual = $Pageinfo->getPageInfo();
 			
-		//Titulo da Página
+		//Titulo da Pï¿½gina
 		$this->view->assign("TXT_TITLE",$recordset_pagina_atual['txt_title']);
-		//Keywords da Página
+		//Keywords da Pï¿½gina
 		$this->view->assign("TXT_KEYWORDS",$recordset_pagina_atual['txt_keywords']);
-		//Descrição da Página
+		//Descriï¿½ï¿½o da Pï¿½gina
 		$this->view->assign("TXT_DESCRIPTION",$recordset_pagina_atual['txt_description']);
 	}
 	
 	/**
-	 * Configura os parâmetros do framework(Constantes)
+	 * Configura os parï¿½metros do framework(Constantes)
 	 */
 	private function setFrameworkConstants($recordset_site_info)
 	{
@@ -360,7 +360,7 @@ Abstract class ControllerBase {
 	}
 
 	/**
-	 * Configura os parâmetros do Template Engine(Constantes)
+	 * Configura os parï¿½metros do Template Engine(Constantes)
 	 */
 	private function setTemplateConstants($Pageinfo,$recordset_site_info)
 	{				
@@ -384,7 +384,7 @@ Abstract class ControllerBase {
 		$this->view->assign("JS",DEFAULT_URL.'web_files/js/');
 		//Caminho do Ajax
 		$this->view->assign("AJAX",DEFAULT_URL.'web_files/ajax/http_request.js');
-		//Caminho do Cabeçalho
+		//Caminho do Cabeï¿½alho
 		$this->view->assign("HEAD",'app/view/templates/Cabecalho/index.php');
 		//Caminho do Rodape
 		$this->view->assign("FOOTER",'app/view/templates/Rodape/index.php');

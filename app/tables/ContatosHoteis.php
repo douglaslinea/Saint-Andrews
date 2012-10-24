@@ -14,7 +14,7 @@ class ContatosHoteis extends BaseContatosHoteis
 {
 	private $table_alias = "contatosHoteis co";
 
-	public function Buscaendereco()
+	public function BuscaEndereco()
 	{
 		try
 		{

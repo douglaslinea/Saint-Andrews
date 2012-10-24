@@ -10,7 +10,6 @@
  * @property string $img_marca
  * @property string $url_default
  * @property string $url_default_admin
- * @property integer $cod_idioma_default
  * @property string $txt_default_title
  * @property string $txt_default_key
  * @property string $txt_default_desc
@@ -21,7 +20,7 @@
  * @property string $url_css_admin
  * @property string $url_css_print
  * @property string $txt_email_webmaster
- * @property WebsiteIdiomas $WebsiteIdiomas
+ * @property integer $cod_idioma_default
  * 
  * @package    ##PACKAGE##
  * @subpackage ##SUBPACKAGE##
@@ -71,15 +70,6 @@ abstract class BaseWebsiteInfo extends Doctrine_Record
         $this->hasColumn('url_default_admin', 'string', 255, array(
              'type' => 'string',
              'length' => 255,
-             'fixed' => false,
-             'unsigned' => false,
-             'primary' => false,
-             'notnull' => true,
-             'autoincrement' => false,
-             ));
-        $this->hasColumn('cod_idioma_default', 'integer', 4, array(
-             'type' => 'integer',
-             'length' => 4,
              'fixed' => false,
              'unsigned' => false,
              'primary' => false,
@@ -175,13 +165,20 @@ abstract class BaseWebsiteInfo extends Doctrine_Record
              'notnull' => true,
              'autoincrement' => false,
              ));
+        $this->hasColumn('cod_idioma_default', 'integer', 4, array(
+             'type' => 'integer',
+             'length' => 4,
+             'fixed' => false,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => false,
+             'autoincrement' => false,
+             ));
     }
 
     public function setUp()
     {
         parent::setUp();
-        $this->hasOne('WebsiteIdiomas', array(
-             'local' => 'cod_idioma_default',
-             'foreign' => 'cod_id'));
+        
     }
 }

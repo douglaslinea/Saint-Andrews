@@ -10,6 +10,7 @@
  * @property string $txt_bairro
  * @property CepCidades $CepCidades
  * @property Doctrine_Collection $CepRuas
+ * @property Doctrine_Collection $CheckIn
  * 
  * @package    ##PACKAGE##
  * @subpackage ##SUBPACKAGE##
@@ -25,7 +26,7 @@ abstract class BaseCepBairros extends Doctrine_Record
              'type' => 'integer',
              'length' => 4,
              'fixed' => false,
-             'unsigned' => false,
+             'unsigned' => true,
              'primary' => true,
              'autoincrement' => true,
              ));
@@ -33,7 +34,7 @@ abstract class BaseCepBairros extends Doctrine_Record
              'type' => 'integer',
              'length' => 4,
              'fixed' => false,
-             'unsigned' => false,
+             'unsigned' => true,
              'primary' => false,
              'notnull' => true,
              'autoincrement' => false,
@@ -57,6 +58,10 @@ abstract class BaseCepBairros extends Doctrine_Record
              'foreign' => 'cod_id'));
 
         $this->hasMany('CepRuas', array(
+             'local' => 'cod_id',
+             'foreign' => 'cod_bairro'));
+
+        $this->hasMany('CheckIn', array(
              'local' => 'cod_id',
              'foreign' => 'cod_bairro'));
     }

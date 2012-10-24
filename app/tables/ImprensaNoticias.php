@@ -24,7 +24,7 @@ class ImprensaNoticias extends BaseImprensaNoticias
 			->from($this->table_alias)
 			->where("no.cod_idioma = ?",LANGUAGE)
 			->andWhere("no.cod_publicado = 1")
-			->andWhere("no.dat_inicio_publicacao <= NOW()")
+			->andWhere("no.dat_inicio_publicado <= NOW()")
 			->andWhere("no.dat_termino_publicacao >= NOW()")
 			->orderBy("no.dat_data DESC")
 			->execute()
@@ -49,10 +49,12 @@ class ImprensaNoticias extends BaseImprensaNoticias
 			->where("no.txt_permalink = ?",$txt_permalink)
 			->andWhere("no.cod_idioma = ?", LANGUAGE)
 			->andWhere("no.cod_publicado = 1")
-			->andWhere("no.dat_inicio_publicacao <= NOW()")
+			->andWhere("no.dat_inicio_publicado <= NOW()")
 			->andWhere("no.dat_termino_publicacao >= NOW()")
 			->execute();
-				
+			
+                        print_r($query);
+                        exit();
 			//Verifica se houve resultado
 			if($query->count() > 0)
 			{
@@ -80,7 +82,7 @@ class ImprensaNoticias extends BaseImprensaNoticias
 			->where("no.txt_permalink != ?",$txt_permalink)
 			->andWhere("no.cod_idioma = ?", LANGUAGE)
 			->andWhere("no.cod_publicado = 1")
-			->andWhere("no.dat_inicio_publicacao <= NOW()")
+			->andWhere("no.dat_inicio_publicado <= NOW()")
 			->andWhere("no.dat_termino_publicacao >= NOW()")
 			->orderBy("no.dat_data DESC")
 			->limit(5)

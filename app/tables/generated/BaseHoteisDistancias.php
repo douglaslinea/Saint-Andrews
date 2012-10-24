@@ -10,6 +10,7 @@
  * @property integer $cod_relacao_idioma
  * @property string $txt_descricao
  * @property integer $cod_hotel
+ * @property Hoteis $Hoteis
  * @property WebsiteIdiomas $WebsiteIdiomas
  * 
  * @package    ##PACKAGE##
@@ -70,6 +71,10 @@ abstract class BaseHoteisDistancias extends Doctrine_Record
     public function setUp()
     {
         parent::setUp();
+        $this->hasOne('Hoteis', array(
+             'local' => 'cod_hotel',
+             'foreign' => 'cod_id'));
+
         $this->hasOne('WebsiteIdiomas', array(
              'local' => 'cod_idioma',
              'foreign' => 'cod_id'));

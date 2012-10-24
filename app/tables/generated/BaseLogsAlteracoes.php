@@ -9,9 +9,10 @@
  * @property string $txt_tabela
  * @property integer $cod_registro
  * @property string $cha_acao
- * @property integer $cod_usuario
  * @property timestamp $dat_data
  * @property string $num_ip
+ * @property integer $cod_usuario
+ * @property Usuarios $Usuarios
  * 
  * @package    ##PACKAGE##
  * @subpackage ##SUBPACKAGE##
@@ -58,15 +59,6 @@ abstract class BaseLogsAlteracoes extends Doctrine_Record
              'notnull' => true,
              'autoincrement' => false,
              ));
-        $this->hasColumn('cod_usuario', 'integer', 4, array(
-             'type' => 'integer',
-             'length' => 4,
-             'fixed' => false,
-             'unsigned' => true,
-             'primary' => false,
-             'notnull' => true,
-             'autoincrement' => false,
-             ));
         $this->hasColumn('dat_data', 'timestamp', null, array(
              'type' => 'timestamp',
              'fixed' => false,
@@ -84,11 +76,22 @@ abstract class BaseLogsAlteracoes extends Doctrine_Record
              'notnull' => true,
              'autoincrement' => false,
              ));
+        $this->hasColumn('cod_usuario', 'integer', 4, array(
+             'type' => 'integer',
+             'length' => 4,
+             'fixed' => false,
+             'unsigned' => true,
+             'primary' => false,
+             'notnull' => true,
+             'autoincrement' => false,
+             ));
     }
 
     public function setUp()
     {
         parent::setUp();
-        
+        $this->hasOne('Usuarios', array(
+             'local' => 'cod_usuario',
+             'foreign' => 'cod_id'));
     }
 }

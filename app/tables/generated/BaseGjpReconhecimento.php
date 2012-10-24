@@ -13,6 +13,8 @@
  * @property integer $txt_ano
  * @property integer $cod_marca
  * @property integer $cod_hotel
+ * @property Hoteis $Hoteis
+ * @property MarcaGJP $MarcaGJP
  * @property WebsiteIdiomas $WebsiteIdiomas
  * 
  * @package    ##PACKAGE##
@@ -83,16 +85,16 @@ abstract class BaseGjpReconhecimento extends Doctrine_Record
              'fixed' => false,
              'unsigned' => false,
              'primary' => false,
-             'notnull' => false,
+             'notnull' => true,
              'autoincrement' => false,
              ));
         $this->hasColumn('cod_hotel', 'integer', 4, array(
              'type' => 'integer',
              'length' => 4,
              'fixed' => false,
-             'unsigned' => false,
+             'unsigned' => true,
              'primary' => false,
-             'notnull' => false,
+             'notnull' => true,
              'autoincrement' => false,
              ));
     }
@@ -100,6 +102,14 @@ abstract class BaseGjpReconhecimento extends Doctrine_Record
     public function setUp()
     {
         parent::setUp();
+        $this->hasOne('Hoteis', array(
+             'local' => 'cod_hotel',
+             'foreign' => 'cod_id'));
+
+        $this->hasOne('MarcaGJP', array(
+             'local' => 'cod_marca',
+             'foreign' => 'cod_id'));
+
         $this->hasOne('WebsiteIdiomas', array(
              'local' => 'cod_idioma',
              'foreign' => 'cod_id'));

@@ -34,7 +34,7 @@ abstract class BaseCepRuas extends Doctrine_Record
              'type' => 'integer',
              'length' => 4,
              'fixed' => false,
-             'unsigned' => false,
+             'unsigned' => true,
              'primary' => false,
              'notnull' => true,
              'autoincrement' => false,

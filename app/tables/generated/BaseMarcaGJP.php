@@ -23,6 +23,8 @@
  * @property Doctrine_Collection $FormularioAgenciaEmpresa
  * @property Doctrine_Collection $FormularioContato
  * @property Doctrine_Collection $FormularioHospedagem
+ * @property Doctrine_Collection $GjpReconhecimento
+ * @property Doctrine_Collection $Hoteis
  * @property Doctrine_Collection $TextoscCategoria
  * 
  * @package    ##PACKAGE##
@@ -167,6 +169,14 @@ abstract class BaseMarcaGJP extends Doctrine_Record
              'foreign' => ' cod_marca'));
 
         $this->hasMany('FormularioHospedagem', array(
+             'local' => 'cod_id',
+             'foreign' => 'cod_marca'));
+
+        $this->hasMany('GjpReconhecimento', array(
+             'local' => 'cod_id',
+             'foreign' => 'cod_marca'));
+
+        $this->hasMany('Hoteis', array(
              'local' => 'cod_id',
              'foreign' => 'cod_marca'));
 

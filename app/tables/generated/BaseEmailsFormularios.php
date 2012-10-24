@@ -9,6 +9,7 @@
  * @property string $txt_email
  * @property string $txt_formulario
  * @property string $txt_conversao
+ * @property integer $cod_relacao_idioma
  * 
  * @package    ##PACKAGE##
  * @subpackage ##SUBPACKAGE##
@@ -26,7 +27,7 @@ abstract class BaseEmailsFormularios extends Doctrine_Record
              'fixed' => false,
              'unsigned' => true,
              'primary' => true,
-             'autoincrement' => true,
+             'autoincrement' => false,
              ));
         $this->hasColumn('txt_email', 'string', 255, array(
              'type' => 'string',
@@ -48,6 +49,15 @@ abstract class BaseEmailsFormularios extends Doctrine_Record
              ));
         $this->hasColumn('txt_conversao', 'string', null, array(
              'type' => 'string',
+             'fixed' => false,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => true,
+             'autoincrement' => false,
+             ));
+        $this->hasColumn('cod_relacao_idioma', 'integer', 4, array(
+             'type' => 'integer',
+             'length' => 4,
              'fixed' => false,
              'unsigned' => false,
              'primary' => false,

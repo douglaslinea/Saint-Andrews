@@ -8,11 +8,11 @@
     <li style="margin:15px;">
     {view}$noticias.dat_data{/view}<br /><br />
     {view}if ($noticias.txt_imagem){/view}
-        <a href="{view}$URL_DEFAULT{/view}listanoticia/detalhes/{view}$noticias.txt_permalink{/view}"><img src="{view}$ARQ_DIN{/view}{view}$noticias.txt_imagem{/view}" alt="{view}$noticias.txt_titulo{/view}" title="{view}$noticias.txt_titulo{/view}" width="250" /></a>
+        <a href="{view}$URL_DEFAULT{/view}noticia/detalhes/{view}$noticias.txt_permalink{/view}"><img src="{view}$ARQ_DIN{/view}{view}$noticias.txt_imagem{/view}" alt="{view}$noticias.txt_titulo{/view}" title="{view}$noticias.txt_titulo{/view}" width="250" /></a>
     {view}/if{/view}
     <br /><br />
     
-    <a href="{view}$URL_DEFAULT{/view}listanoticia/detalhes/{view}$noticias.txt_permalink{/view}">{view}$noticias.txt_titulo{/view}</a><br />
+    <a href="{view}$URL_DEFAULT{/view}noticia/detalhes/{view}$noticias.txt_permalink{/view}">{view}$noticias.txt_titulo{/view}</a><br />
     {view}$Helper->reduzir_string($noticias.txt_texto,100){/view}<br />
     </li>
 

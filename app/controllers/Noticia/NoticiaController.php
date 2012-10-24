@@ -1,13 +1,13 @@
 <?php
-class ListanoticiaController extends ControllerBase
+class NoticiaController extends ControllerBase
 {
-	/* Método Construtor do Controller(Obrigatório Conter em Todos os Controllers)
-	 * Params String Action -> Ação a ser Executada Pelo Controller
-	 * Atenção Demais Métodos do Controller Devem ser Privados
+	/* Mï¿½todo Construtor do Controller(Obrigatï¿½rio Conter em Todos os Controllers)
+	 * Params String Action -> Aï¿½ï¿½o a ser Executada Pelo Controller
+	 * Atenï¿½ï¿½o Demais Mï¿½todos do Controller Devem ser Privados
 	 */
-	public function ListanoticiaController($controller,$action,$urlparams)
+	public function NoticiaController($controller,$action,$urlparams)
 	{
-		//Inicializa os parâmetros da SuperClasse
+		//Inicializa os parï¿½metros da SuperClasse
 		parent::ControllerBase($controller, $action,$urlparams);
 		//Envia o Controller para a action solicitada
 		$this->$action();
@@ -16,7 +16,7 @@ class ListanoticiaController extends ControllerBase
 	private function index_action()
 	{
 		//Solicita os dados
-		$resultado = $this->Delegator('ConcreteListanoticia', 'SelectNoticias');
+		$resultado = $this->Delegator('ConcreteNoticia', 'SelectNoticias');
 		
 		//Coloca o Helper na View
 	   	$this->View()->assign('Helper',HelperFactory::getInstance());
@@ -33,14 +33,14 @@ class ListanoticiaController extends ControllerBase
 		//pega o id do permalink
 		$id = HelperFactory::getInstance()->getPermalink();
 
-		//Valida o id verificando se ele é numérico e se tem algo no id
+		//Valida o id verificando se ele ï¿½ numï¿½rico e se tem algo no id
 		if($id !== false && is_numeric($id))
 		{
 			//pega o permalink por inteiro
 			$permalink = HelperFactory::getInstance()->getPermalink(true);
 			
 			//Seleciona os dados do id
-			$resultado = $this->Delegator('ConcreteListanoticia', 'SelectNoticiasId', array('permalink' => $permalink));
+			$resultado = $this->Delegator('ConcreteNoticia', 'SelectNoticiasId', array('permalink' => $permalink));
 			
 			//Verifica se tem dados
 			if($resultado !== false)
@@ -48,8 +48,8 @@ class ListanoticiaController extends ControllerBase
 				//Coloca os dados na view
 				$this->View()->assign('dados_noticias',$resultado);
 				
-				//Seleciona mais cinco dados tirando o já selecionado
-				$resultado_mais_dados = $this->Delegator('ConcreteListanoticia', 'SelectMaisNoticias', array('permalink' => $permalink));
+				//Seleciona mais cinco dados tirando o jï¿½ selecionado
+				$resultado_mais_dados = $this->Delegator('ConcreteNoticia', 'SelectMaisNoticias', array('permalink' => $permalink));
 				
 				//Coloca o Helper na View
 	   			$this->View()->assign('Helper',HelperFactory::getInstance());
@@ -59,16 +59,17 @@ class ListanoticiaController extends ControllerBase
 			}
 			else
 			{
-				//Envia uma flag para a view indicando que os dados não foram encontrados
+				//Envia uma flag para a view indicando que os dados nï¿½o foram encontrados
 				$this->View()->assign('conteudo_nao_encontrado',true);
 			}
 		}
 		else
 		{
-			//Envia uma flag para a view indicando que os dados não foram encontrados
+			//Envia uma flag para a view indicando que os dados nï¿½o foram encontrados
 			$this->View()->assign('conteudo_nao_encontrado',true);
 		}
 		//Exibe a view
 		$this->View()->display('detalhes.php');
 	}
 }
+?>

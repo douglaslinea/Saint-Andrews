@@ -8,8 +8,16 @@
  * @property integer $cod_id
  * @property string $cha_sigla
  * @property string $txt_uf
+ * @property Doctrine_Collection $CadastroCV
+ * @property Doctrine_Collection $CadastroFornecedor
+ * @property Doctrine_Collection $CadastroNegocios
  * @property Doctrine_Collection $CepCidades
- * @property Doctrine_Collection $Contatos
+ * @property Doctrine_Collection $CheckIn
+ * @property Doctrine_Collection $ContatosHoteis
+ * @property Doctrine_Collection $Destinos
+ * @property Doctrine_Collection $FormularioContato
+ * @property Doctrine_Collection $FormularioHospedagem
+ * @property Doctrine_Collection $GjpVagas
  * 
  * @package    ##PACKAGE##
  * @subpackage ##SUBPACKAGE##
@@ -25,7 +33,7 @@ abstract class BaseCepUf extends Doctrine_Record
              'type' => 'integer',
              'length' => 4,
              'fixed' => false,
-             'unsigned' => false,
+             'unsigned' => true,
              'primary' => true,
              'autoincrement' => true,
              ));
@@ -52,11 +60,43 @@ abstract class BaseCepUf extends Doctrine_Record
     public function setUp()
     {
         parent::setUp();
+        $this->hasMany('CadastroCV', array(
+             'local' => 'cod_id',
+             'foreign' => 'cod_estado'));
+
+        $this->hasMany('CadastroFornecedor', array(
+             'local' => 'cod_id',
+             'foreign' => 'cod_estado'));
+
+        $this->hasMany('CadastroNegocios', array(
+             'local' => 'cod_id',
+             'foreign' => 'cod_estado'));
+
         $this->hasMany('CepCidades', array(
              'local' => 'cod_id',
              'foreign' => 'cod_uf'));
 
-        $this->hasMany('Contatos', array(
+        $this->hasMany('CheckIn', array(
+             'local' => 'cod_id',
+             'foreign' => 'cod_estado'));
+
+        $this->hasMany('ContatosHoteis', array(
+             'local' => 'cod_id',
+             'foreign' => 'cod_estado'));
+
+        $this->hasMany('Destinos', array(
+             'local' => 'cod_id',
+             'foreign' => 'cod_estado'));
+
+        $this->hasMany('FormularioContato', array(
+             'local' => 'cod_id',
+             'foreign' => 'cod_estado'));
+
+        $this->hasMany('FormularioHospedagem', array(
+             'local' => 'cod_id',
+             'foreign' => 'cod_estado'));
+
+        $this->hasMany('GjpVagas', array(
              'local' => 'cod_id',
              'foreign' => 'cod_estado'));
     }

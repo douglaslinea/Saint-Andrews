@@ -1,6 +1,6 @@
 {view}include file="{view}$HEAD{/view}"{/view}
 
-<h2>Notícias</h2>
+<h2>Notï¿½cias</h2>
 
 {view}if !isset($conteudo_nao_encontrado){/view}
 
@@ -8,7 +8,7 @@
 {view}$dados_noticias.dat_data{/view}
 <br /><br />
 
-<strong>Título</strong><br />
+<strong>Tï¿½tulo</strong><br />
 {view}$dados_noticias.txt_titulo{/view}
 <br /><br />
 
@@ -21,11 +21,11 @@
 <strong>Texto</strong><br />
 {view}$dados_noticias.txt_texto{/view}
 	                    
-<!-- Mostra as 5 notícias mais recentes -->
+<!-- Mostra as 5 notï¿½cias mais recentes -->
 
 <br /><br /><br /><br />
 
-<h3>Amostra de "Mais Notícias"</h3>
+<h3>Amostra de "Mais Notï¿½cias"</h3>
 
 <ul>
 {view}foreach from=$dados_noticias_mais_dados item=noticias_mais_dados{/view}
@@ -34,7 +34,7 @@
 {view}$noticias_mais_dados.dat_data{/view}<br />
 {view}$noticias_mais_dados.txt_titulo{/view}<br />
 {view}$Helper->reduzir_string($noticias_mais_dados.txt_texto,100){/view}<br />
-<a href="{view}$URL_DEFAULT{/view}listanoticia/detalhes/{view}$noticias_mais_dados.txt_permalink{/view}">ver notícia &raquo;</a>
+<a href="{view}$URL_DEFAULT{/view}noticia/detalhes/{view}$noticias_mais_dados.txt_permalink{/view}">ver notï¿½cia &raquo;</a>
 </li>
 
 {view}/foreach{/view}

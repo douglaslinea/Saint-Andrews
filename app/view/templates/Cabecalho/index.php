@@ -67,24 +67,4 @@ window.onload=function(){
 
 </script>
 </head>
-
-<body>
-
-<div id="wrapper-conteudo">
-
-<div class="header">
-Teste de troca de idioma: <a href="{view}$LANGUAGE_LINKS{/view}idioma/pt-br">pt</a> - <a href="{view}$LANGUAGE_LINKS{/view}idioma/en-us">en</a>
-
-<nav>
-    <ul>
-    	<li><a href="{view}$URL_DEFAULT{/view}">Index</a></li>
-    	<li><a href="{view}$URL_DEFAULT{/view}cadastro">(Modelo) Cadastro</a></li>
-    	<li><a href="{view}$URL_DEFAULT{/view}fale-conosco">(Modelo) Fale Conosco</a></li>
-    	<li><a href="{view}$URL_DEFAULT{/view}lista-comum">(Modelo) Lista comum</a></li>
-    	<li><a href="{view}$URL_DEFAULT{/view}lista-noticia">(Modelo) Lista notícia</a></li>
-    	<li><a href="{view}$URL_DEFAULT{/view}login">(Modelo) Login</a></li>
-    	<li><a href="{view}$URL_DEFAULT{/view}texto">(Modelo) Texto</a></li>
-    </ul>
-</nav>
-
-</div>
+>

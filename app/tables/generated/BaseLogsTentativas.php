@@ -35,7 +35,7 @@ abstract class BaseLogsTentativas extends Doctrine_Record
              'fixed' => false,
              'unsigned' => false,
              'primary' => false,
-             'notnull' => true,
+             'notnull' => false,
              'autoincrement' => false,
              ));
         $this->hasColumn('num_tentativa', 'integer', 4, array(
@@ -44,7 +44,7 @@ abstract class BaseLogsTentativas extends Doctrine_Record
              'fixed' => false,
              'unsigned' => false,
              'primary' => false,
-             'notnull' => true,
+             'notnull' => false,
              'autoincrement' => false,
              ));
         $this->hasColumn('txt_usuario', 'string', 255, array(
@@ -53,7 +53,7 @@ abstract class BaseLogsTentativas extends Doctrine_Record
              'fixed' => false,
              'unsigned' => false,
              'primary' => false,
-             'notnull' => true,
+             'notnull' => false,
              'autoincrement' => false,
              ));
         $this->hasColumn('dat_tentativa', 'date', null, array(
@@ -61,7 +61,7 @@ abstract class BaseLogsTentativas extends Doctrine_Record
              'fixed' => false,
              'unsigned' => false,
              'primary' => false,
-             'notnull' => true,
+             'notnull' => false,
              'autoincrement' => false,
              ));
     }

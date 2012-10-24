@@ -38,6 +38,7 @@
  * @property Destinos $Destinos
  * @property ImagemCategoria $ImagemCategoria
  * @property ImprensaCategoria $ImprensaCategoria
+ * @property MarcaGJP $MarcaGJP
  * @property WebsiteIdiomas $WebsiteIdiomas
  * @property Doctrine_Collection $CheckIn
  * @property Doctrine_Collection $ContatosHoteis
@@ -45,8 +46,11 @@
  * @property Doctrine_Collection $FormularioAgenciaEmpresa
  * @property Doctrine_Collection $FormularioContato
  * @property Doctrine_Collection $FormularioHospedagem
+ * @property Doctrine_Collection $GjpReconhecimento
  * @property Doctrine_Collection $GjpVagas
  * @property Doctrine_Collection $HoteisAcomodacoes
+ * @property Doctrine_Collection $HoteisDistancias
+ * @property Doctrine_Collection $HoteisFacilidades
  * @property Doctrine_Collection $HoteisRelacaoPromocoes
  * @property Doctrine_Collection $ImprensaFotos
  * @property Doctrine_Collection $ImprensaVideo
@@ -342,6 +346,10 @@ abstract class BaseHoteis extends Doctrine_Record
              'local' => 'cod_imprensa',
              'foreign' => 'cod_id'));
 
+        $this->hasOne('MarcaGJP', array(
+             'local' => 'cod_marca',
+             'foreign' => 'cod_id'));
+
         $this->hasOne('WebsiteIdiomas', array(
              'local' => 'cod_idioma',
              'foreign' => 'cod_id'));
@@ -370,11 +378,23 @@ abstract class BaseHoteis extends Doctrine_Record
              'local' => 'cod_id',
              'foreign' => 'cod_hotel'));
 
+        $this->hasMany('GjpReconhecimento', array(
+             'local' => 'cod_id',
+             'foreign' => 'cod_hotel'));
+
         $this->hasMany('GjpVagas', array(
              'local' => 'cod_id',
              'foreign' => 'cod_hotel'));
 
         $this->hasMany('HoteisAcomodacoes', array(
+             'local' => 'cod_id',
+             'foreign' => 'cod_hotel'));
+
+        $this->hasMany('HoteisDistancias', array(
+             'local' => 'cod_id',
+             'foreign' => 'cod_hotel'));
+
+        $this->hasMany('HoteisFacilidades', array(
              'local' => 'cod_id',
              'foreign' => 'cod_hotel'));
 
