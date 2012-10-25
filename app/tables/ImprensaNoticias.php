@@ -18,7 +18,6 @@ class ImprensaNoticias extends BaseImprensaNoticias
 	{
 		try
 		{
-			//Executa a Query
 			$query = Doctrine_Query::create()
 			->select("no.*, DATE_FORMAT(no.dat_data, '%d/%m/%Y') dat_data")
 			->from($this->table_alias)
