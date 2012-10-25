@@ -14,7 +14,6 @@
  * @property integer $txt_capacidade
  * @property integer $txt_ordem
  * @property string $txt_dimensao
- * @property Hoteis $Hoteis
  * @property WebsiteIdiomas $WebsiteIdiomas
  * @property Doctrine_Collection $HoteisRelacaoCaracteristicasAcomodacoes
  * 
@@ -112,10 +111,6 @@ abstract class BaseHoteisAcomodacoes extends Doctrine_Record
     public function setUp()
     {
         parent::setUp();
-        $this->hasOne('Hoteis', array(
-             'local' => 'cod_hotel',
-             'foreign' => 'cod_id'));
-
         $this->hasOne('WebsiteIdiomas', array(
              'local' => 'cod_idioma',
              'foreign' => 'cod_id'));

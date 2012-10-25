@@ -1,14 +1,16 @@
 <?php
 /**
  * Model do Controller Index
- * O objetivo desta classe é conectar O Controller com o seu Modelo de Abstração
- * Que por sua vez conectará o Controller com a base de dados (Vide Classe Database)
- * @author Linea Comunicação com Design - http://www.lineacom.com.br
+ * O objetivo desta classe ï¿½ conectar O Controller com o seu Modelo de Abstraï¿½ï¿½o
+ * Que por sua vez conectarï¿½ o Controller com a base de dados (Vide Classe Database)
+ * @author Linea Comunicaï¿½ï¿½o com Design - http://www.lineacom.com.br
  *
  */
 class IndexModel
 {	
-	
-	
+	public function SelectNoticias(){
+            return TableFactory::getInstance('ImprensaNoticias')->SelectNoticias();
+        }
+        
 }
 ?>

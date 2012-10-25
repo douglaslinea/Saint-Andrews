@@ -22,8 +22,6 @@
  * @property WebsiteIdiomas $WebsiteIdiomas
  * @property CepCidades $CepCidades
  * @property CepUf $CepUf
- * @property Hoteis $Hoteis
- * @property MarcaGJP $MarcaGJP
  * 
  * @package    ##PACKAGE##
  * @subpackage ##SUBPACKAGE##
@@ -173,14 +171,6 @@ abstract class BaseFormularioContato extends Doctrine_Record
 
         $this->hasOne('CepUf', array(
              'local' => 'cod_estado',
-             'foreign' => 'cod_id'));
-
-        $this->hasOne('Hoteis', array(
-             'local' => 'cod_hotel',
-             'foreign' => 'cod_id'));
-
-        $this->hasOne('MarcaGJP', array(
-             'local' => ' cod_marca',
              'foreign' => 'cod_id'));
     }
 }

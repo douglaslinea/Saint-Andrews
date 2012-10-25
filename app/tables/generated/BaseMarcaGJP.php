@@ -17,15 +17,8 @@
  * @property string $txt_texto_marca
  * @property integer $cod_ordem
  * @property integer $cod_Imprensa
- * @property ImprensaCategoria $ImprensaCategoria
  * @property WebsiteIdiomas $WebsiteIdiomas
  * @property Doctrine_Collection $CadastroNews
- * @property Doctrine_Collection $FormularioAgenciaEmpresa
- * @property Doctrine_Collection $FormularioContato
- * @property Doctrine_Collection $FormularioHospedagem
- * @property Doctrine_Collection $GjpReconhecimento
- * @property Doctrine_Collection $Hoteis
- * @property Doctrine_Collection $TextoscCategoria
  * 
  * @package    ##PACKAGE##
  * @subpackage ##SUBPACKAGE##
@@ -148,39 +141,11 @@ abstract class BaseMarcaGJP extends Doctrine_Record
     public function setUp()
     {
         parent::setUp();
-        $this->hasOne('ImprensaCategoria', array(
-             'local' => 'cod_Imprensa',
-             'foreign' => 'cod_id'));
-
         $this->hasOne('WebsiteIdiomas', array(
              'local' => 'cod_idioma',
              'foreign' => 'cod_id'));
 
         $this->hasMany('CadastroNews', array(
-             'local' => 'cod_id',
-             'foreign' => 'cod_marca'));
-
-        $this->hasMany('FormularioAgenciaEmpresa', array(
-             'local' => 'cod_id',
-             'foreign' => 'cod_marca'));
-
-        $this->hasMany('FormularioContato', array(
-             'local' => 'cod_id',
-             'foreign' => ' cod_marca'));
-
-        $this->hasMany('FormularioHospedagem', array(
-             'local' => 'cod_id',
-             'foreign' => 'cod_marca'));
-
-        $this->hasMany('GjpReconhecimento', array(
-             'local' => 'cod_id',
-             'foreign' => 'cod_marca'));
-
-        $this->hasMany('Hoteis', array(
-             'local' => 'cod_id',
-             'foreign' => 'cod_marca'));
-
-        $this->hasMany('TextoscCategoria', array(
              'local' => 'cod_id',
              'foreign' => 'cod_marca'));
     }

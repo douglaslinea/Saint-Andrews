@@ -11,7 +11,6 @@
  * @property integer $cod_hotel
  * @property integer $cod_tipo
  * @property string $txt_facilidades
- * @property Hoteis $Hoteis
  * @property WebsiteIdiomas $WebsiteIdiomas
  * 
  * @package    ##PACKAGE##
@@ -81,10 +80,6 @@ abstract class BaseHoteisFacilidades extends Doctrine_Record
     public function setUp()
     {
         parent::setUp();
-        $this->hasOne('Hoteis', array(
-             'local' => 'cod_hotel',
-             'foreign' => 'cod_id'));
-
         $this->hasOne('WebsiteIdiomas', array(
              'local' => 'cod_idioma',
              'foreign' => 'cod_id'));

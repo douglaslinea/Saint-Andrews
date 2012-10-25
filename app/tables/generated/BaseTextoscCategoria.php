@@ -13,7 +13,6 @@
  * @property integer $cod_hotel_destino
  * @property integer $cod_optCategoria
  * @property WebsiteIdiomas $WebsiteIdiomas
- * @property MarcaGJP $MarcaGJP
  * @property OptTextoCategoria $OptTextoCategoria
  * 
  * @package    ##PACKAGE##
@@ -95,10 +94,6 @@ abstract class BaseTextoscCategoria extends Doctrine_Record
         parent::setUp();
         $this->hasOne('WebsiteIdiomas', array(
              'local' => 'cod_idioma',
-             'foreign' => 'cod_id'));
-
-        $this->hasOne('MarcaGJP', array(
-             'local' => 'cod_marca',
              'foreign' => 'cod_id'));
 
         $this->hasOne('OptTextoCategoria', array(

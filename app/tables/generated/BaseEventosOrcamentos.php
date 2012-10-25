@@ -18,7 +18,6 @@
  * @property integer $txt_convidados
  * @property integer $cod_hotel
  * @property integer $txt_tipo
- * @property Hoteis $Hoteis
  * @property WebsiteIdiomas $WebsiteIdiomas
  * 
  * @package    ##PACKAGE##
@@ -150,10 +149,6 @@ abstract class BaseEventosOrcamentos extends Doctrine_Record
     public function setUp()
     {
         parent::setUp();
-        $this->hasOne('Hoteis', array(
-             'local' => 'cod_hotel',
-             'foreign' => 'cod_id'));
-
         $this->hasOne('WebsiteIdiomas', array(
              'local' => 'cod_idioma',
              'foreign' => 'cod_id'));

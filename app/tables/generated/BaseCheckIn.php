@@ -34,7 +34,6 @@
  * @property CepBairros $CepBairros
  * @property CepCidades $CepCidades
  * @property CepUf $CepUf
- * @property Hoteis $Hoteis
  * @property WebsiteIdiomas $WebsiteIdiomas
  * 
  * @package    ##PACKAGE##
@@ -292,10 +291,6 @@ abstract class BaseCheckIn extends Doctrine_Record
 
         $this->hasOne('CepUf', array(
              'local' => 'cod_estado',
-             'foreign' => 'cod_id'));
-
-        $this->hasOne('Hoteis', array(
-             'local' => 'cod_hotel',
              'foreign' => 'cod_id'));
 
         $this->hasOne('WebsiteIdiomas', array(

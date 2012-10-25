@@ -18,7 +18,6 @@
  * @property integer $cod_hotel
  * @property CepCidades $CepCidades
  * @property CepUf $CepUf
- * @property Hoteis $Hoteis
  * @property WebsiteIdiomas $WebsiteIdiomas
  * 
  * @package    ##PACKAGE##
@@ -140,10 +139,6 @@ abstract class BaseContatosHoteis extends Doctrine_Record
 
         $this->hasOne('CepUf', array(
              'local' => 'cod_estado',
-             'foreign' => 'cod_id'));
-
-        $this->hasOne('Hoteis', array(
-             'local' => 'cod_hotel',
              'foreign' => 'cod_id'));
 
         $this->hasOne('WebsiteIdiomas', array(

@@ -19,7 +19,6 @@
  * @property WebsiteIdiomas $WebsiteIdiomas
  * @property Doctrine_Collection $DestinosAtracoes
  * @property Doctrine_Collection $DestinosLinks
- * @property Doctrine_Collection $Hoteis
  * 
  * @package    ##PACKAGE##
  * @subpackage ##SUBPACKAGE##
@@ -131,10 +130,6 @@ abstract class BaseDestinos extends Doctrine_Record
              'foreign' => 'cod_destino'));
 
         $this->hasMany('DestinosLinks', array(
-             'local' => 'cod_id',
-             'foreign' => 'cod_destino'));
-
-        $this->hasMany('Hoteis', array(
              'local' => 'cod_id',
              'foreign' => 'cod_destino'));
     }

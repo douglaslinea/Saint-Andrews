@@ -17,7 +17,6 @@
  * @property timestamp $dat_inicio
  * @property timestamp $dat_termino
  * @property string $txt_permalink
- * @property Hoteis $Hoteis
  * @property WebsiteIdiomas $WebsiteIdiomas
  * @property CepUf $CepUf
  * 
@@ -140,10 +139,6 @@ abstract class BaseGjpVagas extends Doctrine_Record
     public function setUp()
     {
         parent::setUp();
-        $this->hasOne('Hoteis', array(
-             'local' => 'cod_hotel',
-             'foreign' => 'cod_id'));
-
         $this->hasOne('WebsiteIdiomas', array(
              'local' => 'cod_idioma',
              'foreign' => 'cod_id'));

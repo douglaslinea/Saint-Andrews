@@ -18,8 +18,6 @@
  * @property integer $cod_hotel
  * @property integer $cod_marca
  * @property date $dat_data
- * @property Hoteis $Hoteis
- * @property MarcaGJP $MarcaGJP
  * @property WebsiteIdiomas $WebsiteIdiomas
  * 
  * @package    ##PACKAGE##
@@ -133,7 +131,7 @@ abstract class BaseFormularioAgenciaEmpresa extends Doctrine_Record
              'type' => 'integer',
              'length' => 4,
              'fixed' => false,
-             'unsigned' => false,
+             'unsigned' => true,
              'primary' => false,
              'notnull' => true,
              'autoincrement' => false,
@@ -151,14 +149,6 @@ abstract class BaseFormularioAgenciaEmpresa extends Doctrine_Record
     public function setUp()
     {
         parent::setUp();
-        $this->hasOne('Hoteis', array(
-             'local' => 'cod_hotel',
-             'foreign' => 'cod_id'));
-
-        $this->hasOne('MarcaGJP', array(
-             'local' => 'cod_marca',
-             'foreign' => 'cod_id'));
-
         $this->hasOne('WebsiteIdiomas', array(
              'local' => 'cod_idioma',
              'foreign' => 'cod_id'));

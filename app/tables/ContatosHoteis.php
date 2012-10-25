@@ -10,53 +10,42 @@
  * @author     ##NAME## <##EMAIL##>
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
-class ContatosHoteis extends BaseContatosHoteis
-{
-	private $table_alias = "contatosHoteis co";
+class ContatosHoteis extends BaseContatosHoteis {
 
-	public function BuscaEndereco()
-	{
-		try
-		{
-			//Executa a Query
-			$query = Doctrine_Query::create()
-			->select('co.*, cc.txt_cidade, cu.txt_uf, cu.cha_sigla')
-			->from($this->table_alias)
-			->innerJoin("co.CepCidades cc")
-			->innerJoin("co.CepUf cu")
-			->where("co.cod_idioma = ?", LANGUAGE)
-			->execute()
-			->toArray();
+    private $table_alias = "contatosHoteis co";
 
-			//Retorna o resultado
-			return $query[0];
-		}
-		catch (Doctrine_Exception $e)
-		{
-			echo $e->getMessage();
-		}
-	}
+    public function BuscaEndereco() {
+        try {
+            $con = Doctrine_Manager::getInstance()->connection();
+            $sth = $con->execute("SELECT co.*, cc.txt_cidade, cu.txt_uf, cu.cha_sigla, ht.txt_endereco, ht.txt_cep 
+                                   FROM " . $this->table_alias . ", cepCidades cc, websiteIdiomas wi, hoteis ht, cepUf cu
+                                   WHERE co.cod_cidade = cc.cod_id AND co.cod_idioma = wi.cod_id AND co.cod_hotel = ht.cod_relacao_idioma AND co.cod_estado =  cu.cod_id group by co.cod_id");
+            
+            $resultado = $sth->fetchAll();
 
-	public function SelectContatos()
-	{
-		try
-		{
-			//Executa a Query
-			$query = Doctrine_Query::create()
-			->select('co.*, cc.txt_cidade, cu.txt_uf')
-			->from($this->table_alias)
-			->innerJoin("co.CepCidades cc")
-			->innerJoin("co.CepUf cu")
-			->where("co.cod_idioma = ?", LANGUAGE)
-			->execute()
-			->toArray();
+            return $resultado[0];
+        } catch (Doctrine_Exception $e) {
+            echo $e->getMessage();
+        }
+    }
 
-			//Retorna o resultado
-			return $query[0];
-		}
-		catch (Doctrine_Exception $e)
-		{
-			echo $e->getMessage();
-		}
-	}
+    public function SelectContatos() {
+        try {
+            //Executa a Query
+            $query = Doctrine_Query::create()
+                    ->select('co.*, cc.txt_cidade, cu.txt_uf')
+                    ->from($this->table_alias)
+                    ->innerJoin("co.CepCidades cc")
+                    ->innerJoin("co.CepUf cu")
+                    ->where("co.cod_idioma = ?", LANGUAGE)
+                    ->execute()
+                    ->toArray();
+
+            //Retorna o resultado
+            return $query[0];
+        } catch (Doctrine_Exception $e) {
+            echo $e->getMessage();
+        }
+    }
+
 }

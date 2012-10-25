@@ -9,7 +9,6 @@
  * @property integer $cod_hotel
  * @property string $txt_link
  * @property string $txt_tipo
- * @property Hoteis $Hoteis
  * 
  * @package    ##PACKAGE##
  * @subpackage ##SUBPACKAGE##
@@ -61,8 +60,6 @@ abstract class BaseRedesSociais extends Doctrine_Record
     public function setUp()
     {
         parent::setUp();
-        $this->hasOne('Hoteis', array(
-             'local' => 'cod_hotel',
-             'foreign' => 'cod_id'));
+        
     }
 }

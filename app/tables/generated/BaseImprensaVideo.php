@@ -15,7 +15,6 @@
  * @property string $arq_videoMiniatura
  * @property timestamp $dat_inicio
  * @property timestamp $dat_termino
- * @property Hoteis $Hoteis
  * @property WebsiteIdiomas $WebsiteIdiomas
  * 
  * @package    ##PACKAGE##
@@ -120,10 +119,6 @@ abstract class BaseImprensaVideo extends Doctrine_Record
     public function setUp()
     {
         parent::setUp();
-        $this->hasOne('Hoteis', array(
-             'local' => 'cod_hotel',
-             'foreign' => 'cod_id'));
-
         $this->hasOne('WebsiteIdiomas', array(
              'local' => 'cod_idioma',
              'foreign' => 'cod_id'));

@@ -10,7 +10,6 @@
  * @property integer $cod_relacao_idioma
  * @property string $txt_categoria
  * @property WebsiteIdiomas $WebsiteIdiomas
- * @property Doctrine_Collection $Hoteis
  * @property Doctrine_Collection $Imagens
  * 
  * @package    ##PACKAGE##
@@ -66,10 +65,6 @@ abstract class BaseImagemCategoria extends Doctrine_Record
         $this->hasOne('WebsiteIdiomas', array(
              'local' => 'cod_idioma',
              'foreign' => 'cod_id'));
-
-        $this->hasMany('Hoteis', array(
-             'local' => 'cod_id',
-             'foreign' => 'cod_categoria_imagem'));
 
         $this->hasMany('Imagens', array(
              'local' => 'cod_id',

@@ -11,7 +11,6 @@
  * @property string $txt_categoria
  * @property WebsiteIdiomas $WebsiteIdiomas
  * @property Doctrine_Collection $Downloads
- * @property Doctrine_Collection $Hoteis
  * 
  * @package    ##PACKAGE##
  * @subpackage ##SUBPACKAGE##
@@ -70,9 +69,5 @@ abstract class BaseDownloadCategoria extends Doctrine_Record
         $this->hasMany('Downloads', array(
              'local' => 'cod_id',
              'foreign' => 'cod_categoria'));
-
-        $this->hasMany('Hoteis', array(
-             'local' => 'cod_id',
-             'foreign' => 'cod_categoria_download'));
     }
 }

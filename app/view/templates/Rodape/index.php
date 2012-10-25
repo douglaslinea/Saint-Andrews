@@ -1,10 +1,9 @@
 <div id="footer">
-	Endereço: {view}$DADOS_ENDERECO.endereco{/view}, {view}$DADOS_ENDERECO.numero{/view}
-	{view}if $DADOS_ENDERECO.complemento{/view} / {view}$DADOS_ENDERECO.complemento{/view} {view}/if{/view}
-	{view}if $DADOS_ENDERECO.bairro{/view} - {view}$DADOS_ENDERECO.bairro{/view} {view}/if{/view}<br />
-	CEP: {view}$DADOS_ENDERECO.cep{/view}<br />
-	{view}$DADOS_ENDERECO.CepCidades.txt_cidade{/view} / {view}$DADOS_ENDERECO.CepUf.txt_uf{/view} / {view}$DADOS_ENDERECO.CepUf.cha_sigla{/view}<br /><br />
-	Telefone: {view}$DADOS_ENDERECO.telefone{/view}<br />
+    Endere&ccedil;o: {view}$DADOS_ENDERECO.txt_endereco{/view}, 
+	{view}if $DADOS_ENDERECO.txt_bairro{/view} - {view}$DADOS_ENDERECO.txt_bairro{/view} {view}/if{/view}<br />
+	CEP: {view}$DADOS_ENDERECO.txt_cep{/view}<br />
+	{view}$DADOS_ENDERECO.txt_cidade{/view} / {view}$DADOS_ENDERECO.txt_uf{/view} / {view}$DADOS_ENDERECO.cha_sigla{/view}<br /><br />
+	Telefone: {view}$DADOS_ENDERECO.txt_telefone{/view}<br />
 </div>
 
 <!-- close wrapper -->

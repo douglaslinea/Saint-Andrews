@@ -11,10 +11,8 @@
  * @property integer $cod_relacao_idioma
  * @property integer $cod_idioma
  * @property WebsiteIdiomas $WebsiteIdiomas
- * @property Doctrine_Collection $Hoteis
  * @property Doctrine_Collection $ImprensaNoticias
  * @property Doctrine_Collection $ImprensaPressKits
- * @property Doctrine_Collection $MarcaGJP
  * 
  * @package    ##PACKAGE##
  * @subpackage ##SUBPACKAGE##
@@ -79,10 +77,6 @@ abstract class BaseImprensaCategoria extends Doctrine_Record
              'local' => 'cod_idioma',
              'foreign' => 'cod_id'));
 
-        $this->hasMany('Hoteis', array(
-             'local' => 'cod_id',
-             'foreign' => 'cod_imprensa'));
-
         $this->hasMany('ImprensaNoticias', array(
              'local' => 'cod_id',
              'foreign' => 'cod_sala_imprensa'));
@@ -90,9 +84,5 @@ abstract class BaseImprensaCategoria extends Doctrine_Record
         $this->hasMany('ImprensaPressKits', array(
              'local' => 'cod_id',
              'foreign' => 'cod_id'));
-
-        $this->hasMany('MarcaGJP', array(
-             'local' => 'cod_id',
-             'foreign' => 'cod_Imprensa'));
     }
 }
