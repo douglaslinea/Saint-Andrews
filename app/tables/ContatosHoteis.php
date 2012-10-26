@@ -17,10 +17,10 @@ class ContatosHoteis extends BaseContatosHoteis {
     public function BuscaEndereco() {
         try {
             $con = Doctrine_Manager::getInstance()->connection();
-            $sth = $con->execute("SELECT co.*, cc.txt_cidade, cu.txt_uf, cu.cha_sigla, ht.txt_endereco, ht.txt_cep 
+            $sth = $con->execute("SELECT co.*, cc.txt_cidade, cu.txt_uf, cu.cha_sigla, ht.* 
                                    FROM " . $this->table_alias . ", cepCidades cc, websiteIdiomas wi, hoteis ht, cepUf cu
                                    WHERE co.cod_cidade = cc.cod_id AND co.cod_idioma = wi.cod_id AND co.cod_hotel = ht.cod_relacao_idioma AND co.cod_estado =  cu.cod_id group by co.cod_id");
-            
+
             $resultado = $sth->fetchAll();
 
             return $resultado[0];
@@ -31,18 +31,14 @@ class ContatosHoteis extends BaseContatosHoteis {
 
     public function SelectContatos() {
         try {
-            //Executa a Query
-            $query = Doctrine_Query::create()
-                    ->select('co.*, cc.txt_cidade, cu.txt_uf')
-                    ->from($this->table_alias)
-                    ->innerJoin("co.CepCidades cc")
-                    ->innerJoin("co.CepUf cu")
-                    ->where("co.cod_idioma = ?", LANGUAGE)
-                    ->execute()
-                    ->toArray();
+            $con = Doctrine_Manager::getInstance()->connection();
+            $sth = $con->execute("SELECT co.*, cc.txt_cidade, cu.txt_uf, cu.cha_sigla, ht.*
+                                   FROM " . $this->table_alias . ", cepCidades cc, websiteIdiomas wi, hoteis ht, cepUf cu
+                                   WHERE co.cod_cidade = cc.cod_id AND co.cod_idioma = wi.cod_id AND co.cod_hotel = ht.cod_relacao_idioma AND co.cod_estado =  cu.cod_id group by co.cod_id");
 
-            //Retorna o resultado
-            return $query[0];
+            $resultado = $sth->fetchAll();
+
+            return $resultado[0];
         } catch (Doctrine_Exception $e) {
             echo $e->getMessage();
         }

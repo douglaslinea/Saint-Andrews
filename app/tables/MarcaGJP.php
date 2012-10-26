@@ -10,7 +10,24 @@
  * @author     ##NAME## <##EMAIL##>
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
-class MarcaGJP extends BaseMarcaGJP
-{
+class MarcaGJP extends BaseMarcaGJP {
+
+    private $table_alias = "marcaGJP mg";
+
+    public function SelectUltimoRelacionamentoIdioma() {
+        try {
+            $query = Doctrine_Query::create()
+                    ->select("*")
+                    ->from($this->table_alias)
+                    ->orderBy("cod_relacao_idioma DESC")
+                    ->limit(1)
+                    ->execute()
+                    ->toArray();
+
+            return $query[0];
+        } catch (Doctrine_Exception $e) {
+            echo $e->getMessage();
+        }
+    }
 
 }

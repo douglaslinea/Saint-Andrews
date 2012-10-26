@@ -19,6 +19,7 @@
  * @property string $txt_cep
  * @property string $txt_endereco
  * @property integer $cod_marca
+ * @property string $num_ip
  * @property WebsiteIdiomas $WebsiteIdiomas
  * @property CepCidades $CepCidades
  * @property CepUf $CepUf
@@ -147,9 +148,18 @@ abstract class BaseFormularioContato extends Doctrine_Record
              'notnull' => false,
              'autoincrement' => false,
              ));
-        $this->hasColumn(' cod_marca', 'integer', 4, array(
+        $this->hasColumn('cod_marca', 'integer', 4, array(
              'type' => 'integer',
              'length' => 4,
+             'fixed' => false,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => true,
+             'autoincrement' => false,
+             ));
+        $this->hasColumn('num_ip', 'string', 15, array(
+             'type' => 'string',
+             'length' => 15,
              'fixed' => false,
              'unsigned' => false,
              'primary' => false,
